@@ -30,7 +30,7 @@ public class CreditCardsService {
     }
 
     public List<CreditCard> getCards(){
-        cards.sort(comparing(CreditCard::getExpieryDate).reversed());
+        cards.sort(comparing(CreditCard::getExpiryDate).reversed());
         return cards;
     }
 

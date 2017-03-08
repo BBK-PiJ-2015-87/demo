@@ -9,12 +9,12 @@ public class CreditCard {
     private String cardNumber;
 
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MMM-yyyy")
-    private Date expieryDate;
+    private Date expiryDate;
 
-    public CreditCard(String bankName, String cardNumber, Date expieryDate) {
+    public CreditCard(String bankName, String cardNumber, Date expiryDate) {
         this.bankName = bankName;
         this.cardNumber = cardNumber;
-        this.expieryDate = expieryDate;
+        this.expiryDate = expiryDate;
     }
 
     public String getBankName() {
@@ -25,8 +25,8 @@ public class CreditCard {
         return cardNumber;
     }
 
-    public Date getExpieryDate() {
-        return expieryDate;
+    public Date getExpiryDate() {
+        return expiryDate;
     }
 
     @Override
@@ -38,14 +38,14 @@ public class CreditCard {
 
         if (!bankName.equals(that.bankName)) return false;
         if (!cardNumber.equals(that.cardNumber)) return false;
-        return expieryDate.equals(that.expieryDate);
+        return expiryDate.equals(that.expiryDate);
     }
 
     @Override
     public int hashCode() {
         int result = bankName.hashCode();
         result = 31 * result + cardNumber.hashCode();
-        result = 31 * result + expieryDate.hashCode();
+        result = 31 * result + expiryDate.hashCode();
         return result;
     }
 }

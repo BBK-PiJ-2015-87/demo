@@ -20,7 +20,7 @@ public class CreditCardsTest {
 
         assertThat(card.getBankName(), is("HSBC Canada"));
         assertThat(card.getCardNumber(), is("5601-XXXX-XXXX-XXXX"));
-        assertThat(card.getExpieryDate().getYear(), is(117));
+        assertThat(card.getExpiryDate().getYear(), is(117));
     }
 
     @Test(expected = ParseException.class)
@@ -44,7 +44,7 @@ public class CreditCardsTest {
         assertThat(cards.size(), is(3));
         assertThat(cards.get(0).getCardNumber(), is("5601-XXXX-XXXX-XXXX"));
         assertThat(cards.get(1).getBankName(), is("Royal Bank of Canada"));
-        assertThat(cards.get(2).getExpieryDate().getYear(), is(118));
+        assertThat(cards.get(2).getExpiryDate().getYear(), is(118));
     }
 
     @Test(expected = RuntimeException.class)
