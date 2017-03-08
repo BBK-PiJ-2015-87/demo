@@ -34,7 +34,7 @@
 
     function fetchCreditCards()
     {
-        fetch('/allCards')
+        fetch('./getCards')
             .then(
                 function(response) {
                     response.json().then(function(data) {
