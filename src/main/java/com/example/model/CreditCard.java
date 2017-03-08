@@ -1,10 +1,14 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class CreditCard {
     private String bankName;
     private String cardNumber;
+
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MMM-yyyy")
     private Date expieryDate;
 
     public CreditCard(String bankName, String cardNumber, Date expieryDate) {
