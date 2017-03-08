@@ -19,7 +19,7 @@ public class CreditCardsTest {
         CreditCard card = CreditCards.fromString(input);
 
         assertThat(card.getBankName(), is("HSBC Canada"));
-        assertThat(card.getCardNumber(), is("5601-2345-3446-5678"));
+        assertThat(card.getCardNumber(), is("5601-XXXX-XXXX-XXXX"));
         assertThat(card.getExpieryDate().getYear(), is(117));
     }
 
@@ -42,7 +42,7 @@ public class CreditCardsTest {
         List<CreditCard> cards = CreditCards.fromMultilineString(input);
 
         assertThat(cards.size(), is(3));
-        assertThat(cards.get(0).getCardNumber(), is("5601-2345-3446-5678"));
+        assertThat(cards.get(0).getCardNumber(), is("5601-XXXX-XXXX-XXXX"));
         assertThat(cards.get(1).getBankName(), is("Royal Bank of Canada"));
         assertThat(cards.get(2).getExpieryDate().getYear(), is(118));
     }
@@ -52,5 +52,13 @@ public class CreditCardsTest {
         String invalidInput = "HSBC Canada   , 5601-2345-3446-5678 ,  InvalidDate \n";
 
         CreditCards.fromMultilineString(invalidInput);
+    }
+
+    @Test
+    public void shouldObfuscateCardNumber() throws ParseException {
+        String input = "5601-2345-3446-567";
+        String obfuscated = CreditCards.obfuscate(input);
+
+        assertThat(obfuscated, is("5601-XXXX-XXXX-XXX"));
     }
 }

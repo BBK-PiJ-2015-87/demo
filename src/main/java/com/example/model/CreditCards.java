@@ -13,7 +13,7 @@ public class CreditCards {
         SimpleDateFormat formatter = new SimpleDateFormat("MMM-yyyy");
         List<String> list = Stream.of(card.split(",")).map(String::trim).collect(toList());
 
-        return new CreditCard(list.get(0), list.get(1), formatter.parse(list.get(2)));
+        return new CreditCard(list.get(0), obfuscate(list.get(1)), formatter.parse(list.get(2)));
     }
 
     public static List<CreditCard> fromMultilineString(String input) {
@@ -23,5 +23,13 @@ public class CreditCards {
             throw new RuntimeException(e);
         }
         }).collect(toList());
+    }
+
+    public static String obfuscate(String cardNumber){
+        StringBuilder builder = new StringBuilder();
+        builder.append(cardNumber.substring(0, 5));
+        String toObfuscate = cardNumber.substring(5);
+
+        return builder.append(toObfuscate.replaceAll("\\d", "X")).toString();
     }
 }
