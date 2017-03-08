@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.model.CreditCard;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -34,6 +35,7 @@ public class CreditCardApplicationTest {
                 asList(new CreditCard("Halifax", "1212", new Date())));
     }
 
+    @Ignore
 	@Test
 	public void shouldReturnJsonWithCards() {
         TestRestTemplate restTemplate = new TestRestTemplate();
